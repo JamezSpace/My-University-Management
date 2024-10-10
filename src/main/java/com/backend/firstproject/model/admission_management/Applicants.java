@@ -2,11 +2,16 @@ package com.backend.firstproject.model.admission_management;
 
 import java.io.Serializable;
 
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
+import com.backend.firstproject.model.Constants;
 
 @Entity
 @Table(name = "applicants")
@@ -15,20 +20,52 @@ public class Applicants implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long applicationId;
 
+    @Column(name = "first_name", nullable = false)
     private String studentFirstName;
+
+    @Column(name = "last_name", nullable = false)
     private String studentLastName;
+
+    @Column(name = "date_of_birth")
+    private LocalDateTime dateOfBirth;
+
+    private Constants.Gender gender;
+
+    @Column(unique = true, nullable = false)
     private String studentEmail;
+
+    @Column(name = "phone_num")
     private String studentPhoneNum;
+
+    private String nationality;
+
+    @Column(name = "address")
     private String studentAddress;
+
     private String password;
-    private String dateOfBirth;
 
     public void setStudentFirstName(String studentFirstName) {
         this.studentFirstName = studentFirstName;
     }
 
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
     public void setStudentLastName(String studentLastName) {
         this.studentLastName = studentLastName;
+    }
+
+    public void setGender(Constants.Gender gender) {
+        this.gender = gender;
+    }
+
+    public Constants.Gender getGender() {
+        return gender;
     }
 
     public void setStudentEmail(String studentEmail) {
@@ -47,7 +84,7 @@ public class Applicants implements Serializable {
         this.password = password;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(LocalDateTime dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -79,7 +116,7 @@ public class Applicants implements Serializable {
         return password;
     }
 
-    public String getDateOfBirth() {
+    public LocalDateTime getDateOfBirth() {
         return dateOfBirth;
     }
 
