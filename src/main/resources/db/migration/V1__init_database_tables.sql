@@ -15,7 +15,7 @@ create table admissions (
     applicationId int foreign key references applicants(application_id),
     application_date timestamp(6),
     admission_status varchar(8),
-    application_type varchar(12),
+    application_type varchar(12)
 );
 
 create table programs (
@@ -23,11 +23,18 @@ create table programs (
     program_name VARCHAR(50),
     program_level VARCHAR(15),
     duration SMALLINT
-)
+);
 
 create table entry_requirements (
     id int NOT NULL PRIMARY KEY,
     program_id VARCHAR(10) foreign key references programs(program_id),
     entry_type VARCHAR(12),
-    credits smallint,
-)
+    credits smallint
+);
+
+create table credits (
+    id int not null primary key,
+    exam_name varchar(10),
+    course varchar(20),
+    points smallint
+);

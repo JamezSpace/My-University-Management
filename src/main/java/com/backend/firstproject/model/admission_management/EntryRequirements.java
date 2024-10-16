@@ -20,7 +20,7 @@ public class EntryRequirements {
     @JoinColumn(name = "program_id", referencedColumnName = "programId")
     private Programs program;
 
-    private Constants.ApplicationType entryType;
+    private Constants.EntryType entryType;
     private Short credits;
 
     public Long getEntryRequirementsId() {
@@ -31,7 +31,7 @@ public class EntryRequirements {
         return program.getProgramId();
     }
 
-    public Constants.ApplicationType getEntryType() {
+    public Constants.EntryType getEntryType() {
         return entryType;
     }
 
@@ -43,7 +43,7 @@ public class EntryRequirements {
         this.program = program;
     }
 
-    public void setEntryType(Constants.ApplicationType entryType) {
+    public void setEntryType(Constants.EntryType entryType) {
         this.entryType = entryType;
     }
 

@@ -34,4 +34,5 @@ build/
 
 
 ### Files ###
-src/main/resources/application.properties
+src/main/resources/application.yml
+src/main/resources/db/migration/V1__init_database_tables.sql

@@ -6,7 +6,7 @@ public class Constants {
         FEMALE
     }
 
-    public enum ApplicationType {
+    public enum EntryType {
         FRESH_ENTRY,
         DIRECT_ENTRY,
         DEGREE_TOPUP

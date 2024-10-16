@@ -20,7 +20,7 @@ public class Admissions {
     @JoinColumn(name = "application_id", referencedColumnName = "applicationId")
     private Applicants applicationId;
 
-    private Constants.ApplicationType applicationType;
+    private Constants.EntryType applicationType;
     
     private LocalDateTime applicationDate;
 
@@ -35,7 +35,7 @@ public class Admissions {
         return applicationId;
     }
 
-    public Constants.ApplicationType getApplicationType() {
+    public Constants.EntryType getApplicationType() {
         return applicationType;
     }
 
@@ -47,7 +47,7 @@ public class Admissions {
         return admissionStatus;
     }
 
-    public void setApplicationType(Constants.ApplicationType applicationType) {
+    public void setApplicationType(Constants.EntryType applicationType) {
         this.applicationType = applicationType;
     }
 
