@@ -1,5 +1,7 @@
 package com.backend.firstproject.model.admission_management;
 
+import com.backend.firstproject.model.Constants;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,7 +20,7 @@ public class EntryRequirements {
     @JoinColumn(name = "program_id", referencedColumnName = "programId")
     private Programs program;
 
-    private String entryType;
+    private Constants.ApplicationType entryType;
     private Short credits;
 
     public Long getEntryRequirementsId() {
@@ -29,7 +31,7 @@ public class EntryRequirements {
         return program.getProgramId();
     }
 
-    public String getEntryType() {
+    public Constants.ApplicationType getEntryType() {
         return entryType;
     }
 
@@ -41,7 +43,7 @@ public class EntryRequirements {
         this.program = program;
     }
 
-    public void setEntryType(String entryType) {
+    public void setEntryType(Constants.ApplicationType entryType) {
         this.entryType = entryType;
     }
 

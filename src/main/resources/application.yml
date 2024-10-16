@@ -1,0 +1,16 @@
+spring:
+    application:
+        name: firstproject
+    jpa:
+        hibernate:
+            ddl-auto: create
+        show-sql: true
+    datasource:
+        url: jdbc:postgresql://localhost:5432/my_university
+        username: postgres
+        password: 12345
+    flyway:
+        baseline-on-migrate: true
+        enabled: true
+        default-schema: flyway-schema
+        baseline-version: 0

@@ -18,32 +18,36 @@ public class Admissions {
     private int sn;
 
     @JoinColumn(name = "application_id", referencedColumnName = "applicationId")
-    private Applicants application;
+    private Applicants applicationId;
 
-    private String applicationType; // applicationType varies between first-year-entry, direct-entry and degree-topup
+    private Constants.ApplicationType applicationType;
     
     private LocalDateTime applicationDate;
 
     @Column(name = "admission_status")
     private Constants.AdmissionStatus admissionStatus;
 
-    public Long getApplicationId() {
-        return application.getApplicationId();
+    public int getSn() {
+        return sn;
     }
 
-    public String getApplicationType() {
+    public Applicants getApplicationId() {
+        return applicationId;
+    }
+
+    public Constants.ApplicationType getApplicationType() {
         return applicationType;
     }
 
-    public String getApplicationDate() {
-        return applicationDate.toString();
+    public LocalDateTime getApplicationDate() {
+        return applicationDate;
     }
 
     public Constants.AdmissionStatus getAdmissionStatus() {
         return admissionStatus;
     }
 
-    public void setApplicationType(String applicationType) {
+    public void setApplicationType(Constants.ApplicationType applicationType) {
         this.applicationType = applicationType;
     }
 

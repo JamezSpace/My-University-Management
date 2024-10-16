@@ -10,16 +10,17 @@ public class Programs {
 
     private String name;
     private String level; // level is within 'undergraduate' or 'graduate'
-    private String entryType; // first-year or direct-entry for 'undergraduate' level
     private Byte duration;
+    
+    // private String entryType; // first-year or direct-entry for 'undergraduate' level
+    
+    // public void setEntryType(String entryType) {
+    //     this.entryType = entryType;
+    // }
 
-    public void setEntryType(String entryType) {
-        this.entryType = entryType;
-    }
-
-    public String getEntryType() {
-        return entryType;
-    }
+    // public String getEntryType() {
+    //     return entryType;
+    // }
 
     public String getProgramId() {
         return programId;

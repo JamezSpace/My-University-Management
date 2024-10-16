@@ -6,6 +6,12 @@ public class Constants {
         FEMALE
     }
 
+    public enum ApplicationType {
+        FRESH_ENTRY,
+        DIRECT_ENTRY,
+        DEGREE_TOPUP
+    }
+
     public enum AdmissionStatus {
         REJECTED,
         PENDING,
