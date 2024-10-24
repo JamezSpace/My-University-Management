@@ -10,9 +10,9 @@ import java.util.List;
 
 @Service
 public class ApplicantsService {
-    @Autowired
     private ApplicantsRepo applicantsRepository;
 
+    // example of constructor injection
     public ApplicantsService(ApplicantsRepo repo) {
         applicantsRepository = repo;
     }
@@ -21,7 +21,7 @@ public class ApplicantsService {
         return applicantsRepository.findAll();
     }
 
-    public Applicants geApplicant(Long id) {
+    public Applicants getApplicant(Long id) {
         return applicantsRepository.findByApplicationId(id);
     }
 

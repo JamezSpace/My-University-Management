@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
  
 @RestController
 public class ApplicantsController {
+    // example of field injection
     @Autowired
     private ApplicantsService applicantsService;
 
@@ -28,7 +29,7 @@ public class ApplicantsController {
 
     @GetMapping("/applicants/{id}")
     public Applicants getApplicant(@PathVariable Long id) {
-        return applicantsService.geApplicant(id);
+        return applicantsService.getApplicant(id);
     }
 
     @PutMapping("/applicants/{id}")
