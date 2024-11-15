@@ -1,16 +1,31 @@
+server:
+  port: 5000
+
+logging:
+  level:
+    sql: debug
+    web: warn
+    
 spring:
     application:
         name: firstproject
     jpa:
         hibernate:
-            ddl-auto: create
+            ddl-auto: validate
+            naming: 
+                implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+            
         show-sql: true
     datasource:
         url: jdbc:postgresql://localhost:5432/my_university
         username: postgres
         password: 12345
     flyway:
+        enabled: false
         baseline-on-migrate: true
-        enabled: true
-        default-schema: flyway-schema
         baseline-version: 0
+        schemas:
+            - public
+        create-schemas: true
+        default-schema: public

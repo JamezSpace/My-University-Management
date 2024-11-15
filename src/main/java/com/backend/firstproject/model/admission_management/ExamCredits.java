@@ -1,21 +1,26 @@
 package com.backend.firstproject.model.admission_management;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "credits")
 public class ExamCredits {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     
+    @Column(name="exam_name")
     private String examName;
+    
     private String course;
     private Short points;
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 

@@ -7,8 +7,8 @@ import com.backend.firstproject.model.admission_management.Applicants;
 import java.util.List;
 
 @Repository
-public interface ApplicantsRepo extends JpaRepository<Applicants, Long>{
-    Applicants findByApplicationId(Long applicationId);
-    List<Applicants> findByStudentLastName(String studentLastName);
-    List<Applicants> findByStudentFirstName(String studentFirstName);
+public interface ApplicantsRepo extends JpaRepository<Applicants, Integer>{
+    Applicants findByApplicationId(int applicationId);
+    List<Applicants> findByFirstName(String firstName);
+    List<Applicants> findByLastName(String lastName);
 }

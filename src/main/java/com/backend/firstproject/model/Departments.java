@@ -3,7 +3,7 @@ package com.backend.firstproject.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
-@Entity
+// @Entity
 public class Departments {
     @Id
     private Long facultyId;

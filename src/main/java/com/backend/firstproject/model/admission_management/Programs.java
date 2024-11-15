@@ -1,15 +1,21 @@
 package com.backend.firstproject.model.admission_management;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
 public class Programs {
     @Id
+    @Column(name="program_id")
     private String programId;
 
+    @Column(name="program_name")
     private String name;
+
+    @Column(name="program_level")
     private String level; // level is within 'undergraduate' or 'graduate'
+    
     private Byte duration;
     
     // private String entryType; // first-year or direct-entry for 'undergraduate' level

@@ -4,60 +4,45 @@ import java.time.LocalDateTime;
 
 import com.backend.firstproject.model.Constants;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
 @Entity
+@Table(name = "admissions")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Admissions {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int sn;
 
-    @JoinColumn(name = "application_id", referencedColumnName = "applicationId")
-    private Applicants applicationId;
+    @JoinColumn(unique = true)
+    @OneToOne(cascade=CascadeType.ALL, optional = false)
+    private Applicants applicant;
 
-    private Constants.EntryType applicationType;
-    
+    @Column(name = "application_date")
     private LocalDateTime applicationDate;
 
     @Column(name = "admission_status")
+    @Enumerated(EnumType.STRING)
     private Constants.AdmissionStatus admissionStatus;
 
-    public int getSn() {
-        return sn;
-    }
+    @Column(name = "application_type")
+    @Enumerated(EnumType.STRING)
+    private Constants.EntryType applicationType;
 
-    public Applicants getApplicationId() {
-        return applicationId;
-    }
-
-    public Constants.EntryType getApplicationType() {
-        return applicationType;
-    }
-
-    public LocalDateTime getApplicationDate() {
-        return applicationDate;
-    }
-
-    public Constants.AdmissionStatus getAdmissionStatus() {
-        return admissionStatus;
-    }
-
-    public void setApplicationType(Constants.EntryType applicationType) {
-        this.applicationType = applicationType;
-    }
-
-    // @DateTimeFormat(iso = ISO.DATE_TIME)
-    public void setApplicationDate(String applicationDate) {
-        this.applicationDate = LocalDateTime.parse(applicationDate);
-    }
-
-    public void setAdmissionStatus(Constants.AdmissionStatus admissionStatus) {
-        this.admissionStatus = admissionStatus;
-    }
-
+    // TODO: exam ID to be put in here
 }
