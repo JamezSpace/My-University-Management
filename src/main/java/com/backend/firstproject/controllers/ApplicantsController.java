@@ -20,7 +20,7 @@ import com.backend.firstproject.model.admission_management.Applicants;
 import com.backend.firstproject.service.ApplicantsService;
  
 @RestController
-@RequestMapping("/api/applicants")
+@RequestMapping("/api/v1/applicants")
 public class ApplicantsController {
     // example of field injection
     @Autowired
@@ -61,7 +61,7 @@ public class ApplicantsController {
 
         Applicants savedApplicant = applicantsService.addApplicant(newApplicant);
         
-        return new ResponseEntity<>(savedApplicant, HttpStatus.CREATED);
+        return new ResponseEntity<Applicants>(savedApplicant, HttpStatus.CREATED);
     }
 
     @PostMapping("/bulk")

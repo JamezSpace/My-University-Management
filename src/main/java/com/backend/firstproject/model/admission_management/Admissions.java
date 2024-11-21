@@ -30,7 +30,7 @@ public class Admissions {
     private int sn;
 
     @JoinColumn(unique = true)
-    @OneToOne(cascade=CascadeType.ALL, optional = false)
+    @OneToOne(cascade=CascadeType.DETACH, optional = false)
     private Applicants applicant;
 
     @Column(name = "application_date")

@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ErrorDTO {
     private Integer code;
+    private String summary;
     private String message;
     private LocalDateTime time; 
 }

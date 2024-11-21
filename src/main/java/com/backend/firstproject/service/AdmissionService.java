@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.backend.firstproject.repository.AdmissionsRepo;
 import com.backend.firstproject.repository.ApplicantsRepo;
 import com.backend.firstproject.dto.AdmissionsDTO;
+import com.backend.firstproject.exceptions.AdmissionExistsException;
 import com.backend.firstproject.exceptions.ApplicantNotFoundException;
 import com.backend.firstproject.model.admission_management.Admissions;
 import com.backend.firstproject.model.admission_management.Applicants;
@@ -45,6 +46,12 @@ public class AdmissionService {
     }
 
     public Admissions addNewAdmission(AdmissionsDTO newAdmission) {
+        int applicantId = newAdmission.getApplicantId();
+        
+        Admissions existingAdmission = getAdmissionApplicationByApplicationId(applicantId);
+
+        if(existingAdmission != null) throw new AdmissionExistsException("Admission details for applicant ID: " + applicantId + " exists already.");
+
         Applicants applicant = getApplication(newAdmission.getApplicantId());
 
         Admissions admission = new Admissions();
@@ -64,5 +71,18 @@ public class AdmissionService {
         existingAdmission.setApplicationType(edit.getApplicationType());
 
         return admissionRepo.save(existingAdmission);
+    }
+
+    public boolean deleteAdmission(int applicationId) {
+        int admissionSn = getAdmissionApplicationByApplicationId(applicationId).getSn();
+        
+        try {
+            admissionRepo.deleteById(admissionSn);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            return false;
+        }
+
+        return true;
     }
 }
